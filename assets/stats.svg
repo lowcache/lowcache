@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 294" font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13">
+  <rect x="1" y="1" width="878" height="292" rx="12" fill="#0d1117" stroke="#21262d" stroke-width="1.5"/>
+  <rect x="14" y="14" width="852" height="30" rx="6" fill="#161b22"/>
+  <text x="28" y="34"><tspan fill="#3fb950" font-weight="bold">$</tspan><tspan fill="#c9d1d9" dx="8">gh-stats --user lowcache</tspan></text>
+  <text x="28" y="76"><tspan fill="#ffa657">repos:</tspan><tspan fill="#c9d1d9" dx="8">12 public</tspan><tspan fill="#ffa657" dx="40">stars:</tspan><tspan fill="#c9d1d9" dx="8">5</tspan><tspan fill="#ffa657" dx="40">on github since:</tspan><tspan fill="#c9d1d9" dx="8">2022</tspan></text>
+  <text x="28" y="102" fill="#8b949e"># top languages by weight, all public repos</text>
+  <text x="28" y="130" fill="#c9d1d9">python</text>
+  <rect x="250" y="118" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="118" width="215" height="14" rx="3" fill="#3fb950" opacity="0.95">
+    <animate attributeName="width" from="0" to="215" begin="0.20s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="130" fill="#ffa657">44.8%</text>
+  <text x="28" y="156" fill="#c9d1d9">typescript</text>
+  <rect x="250" y="144" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="144" width="93" height="14" rx="3" fill="#3fb950" opacity="0.83">
+    <animate attributeName="width" from="0" to="93" begin="0.32s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="156" fill="#ffa657">19.4%</text>
+  <text x="28" y="182" fill="#c9d1d9">nix</text>
+  <rect x="250" y="170" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="170" width="41" height="14" rx="3" fill="#3fb950" opacity="0.71">
+    <animate attributeName="width" from="0" to="41" begin="0.44s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="182" fill="#ffa657">8.5%</text>
+  <text x="28" y="208" fill="#c9d1d9">luau</text>
+  <rect x="250" y="196" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="196" width="28" height="14" rx="3" fill="#3fb950" opacity="0.59">
+    <animate attributeName="width" from="0" to="28" begin="0.56s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="208" fill="#ffa657">5.9%</text>
+  <text x="28" y="234" fill="#c9d1d9">html</text>
+  <rect x="250" y="222" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="222" width="24" height="14" rx="3" fill="#3fb950" opacity="0.47">
+    <animate attributeName="width" from="0" to="24" begin="0.68s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="234" fill="#ffa657">5.1%</text>
+  <text x="28" y="260" fill="#c9d1d9">javascript</text>
+  <rect x="250" y="248" width="480" height="14" rx="3" fill="#21262d"/>
+  <rect x="250" y="248" width="19" height="14" rx="3" fill="#3fb950" opacity="0.35">
+    <animate attributeName="width" from="0" to="19" begin="0.80s" dur="0.7s" fill="freeze"/>
+  </rect>
+  <text x="746" y="260" fill="#ffa657">4.0%</text>
+</svg>
