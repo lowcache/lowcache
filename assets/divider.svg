@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 36">
+  <defs>
+    <linearGradient id="edgeFade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="8%" stop-color="#ffffff"/>
+      <stop offset="92%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <mask id="fade"><rect width="880" height="36" fill="url(#edgeFade)"/></mask>
+  </defs>
+  <g mask="url(#fade)">
+    <line x1="0" y1="18" x2="880" y2="18" stroke="#7d8590" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 6"/>
+    <!-- cache lines in transit: green = hit, amber = miss -->
+    <rect x="-40" y="12" width="28" height="12" rx="3" fill="#3fb950">
+      <animate attributeName="x" from="-40" to="900" dur="7s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-40" y="12" width="28" height="12" rx="3" fill="#ffa657">
+      <animate attributeName="x" from="-40" to="900" dur="9s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-40" y="12" width="28" height="12" rx="3" fill="#7ee787">
+      <animate attributeName="x" from="-40" to="900" dur="6s" begin="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-40" y="12" width="28" height="12" rx="3" fill="#bc8cff">
+      <animate attributeName="x" from="-40" to="900" dur="8s" begin="4.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-40" y="12" width="28" height="12" rx="3" fill="#79c0ff">
+      <animate attributeName="x" from="-40" to="900" dur="10s" begin="2.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

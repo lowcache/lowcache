@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 352" font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14">
+  <defs>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3fb950"/>
+      <stop offset="50%" stop-color="#bc8cff"/>
+      <stop offset="100%" stop-color="#ffa657"/>
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 440 176" to="360 440 176" dur="12s" repeatCount="indefinite"/>
+    </linearGradient>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#ffffff" opacity="0.02"/>
+    </pattern>
+    <clipPath id="typeCmd1"><rect x="212" y="60" width="0" height="22"><animate attributeName="width" from="0" to="110" begin="0.9s" dur="0.6s" fill="freeze"/></rect></clipPath>
+    <clipPath id="typeCmd2"><rect x="212" y="132" width="0" height="22"><animate attributeName="width" from="0" to="380" begin="3.1s" dur="1.5s" fill="freeze"/></rect></clipPath>
+    <clipPath id="frame"><rect x="1.5" y="1.5" width="877" height="349" rx="12"/></clipPath>
+  </defs>
+
+  <!-- window -->
+  <rect x="1.5" y="1.5" width="877" height="349" rx="12" fill="#0d1117" stroke="url(#borderGrad)" stroke-width="2"/>
+  <g clip-path="url(#frame)">
+    <rect x="1.5" y="1.5" width="877" height="38" fill="#161b22"/>
+    <rect x="1.5" y="39" width="877" height="1" fill="#21262d"/>
+    <circle cx="26" cy="20.5" r="6" fill="#ff5f56"/>
+    <circle cx="46" cy="20.5" r="6" fill="#ffbd2e"/>
+    <circle cx="66" cy="20.5" r="6" fill="#27c93f"/>
+    <text x="440" y="25" text-anchor="middle" fill="#8b949e" font-size="12">lowcache@localhost: ~</text>
+
+    <!-- line 1: prompt + whoami -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="0.4s" fill="freeze"/>
+      <text x="28" y="76"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
+    </g>
+    <g clip-path="url(#typeCmd1)">
+      <text x="214" y="76" fill="#e6edf3">whoami</text>
+    </g>
+
+    <!-- line 2: output -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="1.8s" fill="freeze"/>
+      <text x="28" y="100" fill="#c9d1d9">jarred robinson · self-taught · freelance · 10+ years of linux</text>
+    </g>
+
+    <!-- line 4: prompt + cat -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="2.6s" fill="freeze"/>
+      <text x="28" y="148"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
+    </g>
+    <g clip-path="url(#typeCmd2)">
+      <text x="214" y="148" fill="#e6edf3">cat /proc/lowcache/status</text>
+    </g>
+
+    <!-- status block -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="4.9s" fill="freeze"/>
+      <text x="28" y="172"><tspan fill="#ffa657">State:</tspan><tspan x="140" fill="#3fb950">R (running — probably rebuilding nixos)</tspan></text>
+    </g>
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="5.05s" fill="freeze"/>
+      <text x="28" y="196"><tspan fill="#ffa657">Distro:</tspan><tspan x="140" fill="#c9d1d9">nixos · tmpfs root · impermanent by design</tspan></text>
+    </g>
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="5.2s" fill="freeze"/>
+      <text x="28" y="220"><tspan fill="#ffa657">Stack:</tspan><tspan x="140" fill="#c9d1d9">shell · go · python · nix · nim · typescript</tspan></text>
+    </g>
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="5.35s" fill="freeze"/>
+      <text x="28" y="244"><tspan fill="#ffa657">Focus:</tspan><tspan x="140" fill="#c9d1d9">mcp sandboxes · agent tooling · declarative everything</tspan></text>
+    </g>
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="5.5s" fill="freeze"/>
+      <text x="28" y="268"><tspan fill="#ffa657">Coffee:</tspan><tspan x="140" fill="#c9d1d9">bad, black, plentiful</tspan></text>
+    </g>
+
+    <!-- final prompt + blinking cursor -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="6.3s" fill="freeze"/>
+      <text x="28" y="316"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
+    </g>
+    <rect x="214" y="303" width="9" height="17" fill="#e6edf3" opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.5;0.51;1" dur="1.2s" begin="6.3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- crt texture -->
+    <rect x="1.5" y="40" width="877" height="311" fill="url(#scanlines)"/>
+  </g>
+</svg>
