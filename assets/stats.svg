@@ -6,10 +6,10 @@
   <text x="28" y="102" fill="#8b949e"># top languages by weight, all public repos</text>
   <text x="28" y="130" fill="#c9d1d9">python</text>
   <rect x="250" y="118" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="118" width="215" height="14" rx="3" fill="#3fb950" opacity="0.95">
-    <animate attributeName="width" from="0" to="215" begin="0.20s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="118" width="216" height="14" rx="3" fill="#3fb950" opacity="0.95">
+    <animate attributeName="width" from="0" to="216" begin="0.20s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="130" fill="#ffa657">44.8%</text>
+  <text x="746" y="130" fill="#ffa657">44.9%</text>
   <text x="28" y="156" fill="#c9d1d9">typescript</text>
   <rect x="250" y="144" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="144" width="93" height="14" rx="3" fill="#3fb950" opacity="0.83">
