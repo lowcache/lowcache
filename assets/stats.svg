@@ -9,7 +9,7 @@
   <rect x="250" y="118" width="214" height="14" rx="3" fill="#3fb950" opacity="0.95">
     <animate attributeName="width" from="0" to="214" begin="0.20s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="130" fill="#ffa657">44.7%</text>
+  <text x="746" y="130" fill="#ffa657">44.6%</text>
   <text x="28" y="156" fill="#c9d1d9">typescript</text>
   <rect x="250" y="144" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="144" width="92" height="14" rx="3" fill="#3fb950" opacity="0.83">
@@ -36,8 +36,8 @@
   <text x="746" y="234" fill="#ffa657">5.0%</text>
   <text x="28" y="260" fill="#c9d1d9">shell</text>
   <rect x="250" y="248" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="248" width="21" height="14" rx="3" fill="#3fb950" opacity="0.35">
-    <animate attributeName="width" from="0" to="21" begin="0.80s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="248" width="20" height="14" rx="3" fill="#3fb950" opacity="0.35">
+    <animate attributeName="width" from="0" to="20" begin="0.80s" dur="0.7s" fill="freeze"/>
   </rect>
   <text x="746" y="260" fill="#ffa657">4.3%</text>
 </svg>
