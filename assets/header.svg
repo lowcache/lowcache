@@ -1,21 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 432" font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 456" font-family="ui-monospace, 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="14">
   <defs>
     <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3fb950"/>
       <stop offset="50%" stop-color="#bc8cff"/>
       <stop offset="100%" stop-color="#ffa657"/>
-      <animateTransform attributeName="gradientTransform" type="rotate" from="0 440 216" to="360 440 216" dur="12s" repeatCount="indefinite"/>
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 440 216" to="360 440 216" dur="15s" repeatCount="indefinite"/>
     </linearGradient>
     <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
       <rect width="4" height="1" fill="#ffffff" opacity="0.02"/>
     </pattern>
     <clipPath id="typeCmd1"><rect x="212" y="60" width="0" height="22"><animate attributeName="width" from="0" to="110" begin="0.9s" dur="0.6s" fill="freeze"/></rect></clipPath>
-    <clipPath id="typeCmd2"><rect x="212" y="132" width="0" height="22"><animate attributeName="width" from="0" to="380" begin="3.1s" dur="1.5s" fill="freeze"/></rect></clipPath>
+    <clipPath id="typeCmd2"><rect x="212" y="156" width="0" height="22"><animate attributeName="width" from="0" to="380" begin="3.1s" dur="1.5s" fill="freeze"/></rect></clipPath>
     <clipPath id="frame"><rect x="1.5" y="1.5" width="877" height="429" rx="12"/></clipPath>
   </defs>
 
   <!-- window -->
-  <rect x="1.5" y="1.5" width="877" height="429" rx="12" fill="#0d1117" stroke="url(#borderGrad)" stroke-width="2"/>
+  <rect x="1.5" y="1.5" width="877" height="455" rx="12" fill="#0d1117" stroke="url(#borderGrad)" stroke-width="2"/>
   <g clip-path="url(#frame)">
     <rect x="1.5" y="1.5" width="877" height="38" fill="#161b22"/>
     <rect x="1.5" y="39" width="877" height="1" fill="#21262d"/>
@@ -36,66 +36,68 @@
     <!-- line 2: output -->
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="1.8s" fill="freeze"/>
-      <text x="28" y="100" fill="#c9d1d9">jarred robinson · self-taught · freelance · 10+ years of linux</text>
+      <text x="28" y="100" fill="#c9d1d9">Jarred Robinson · Self-Taught · Currently Freelance · 10+ years practical linux experience · Certified: A+ | Linux+ </text>
+      <text x="28" y="124" fill="#c9d1d9">  Prev. Musician · Journalist · Plumber · Peer-Support Trainer · Retail Sales Manager · Itinerate Hobo </text>
+      
     </g>
 
     <!-- line 4: prompt + cat -->
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="2.6s" fill="freeze"/>
-      <text x="28" y="148"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
+      <text x="28" y="172"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
     </g>
     <g clip-path="url(#typeCmd2)">
-      <text x="214" y="148" fill="#e6edf3">cat /proc/lowcache/status</text>
+      <text x="214" y="172" fill="#e6edf3">cat /proc/lowcache/status</text>
     </g>
 
     <!-- status block -->
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="4.9s" fill="freeze"/>
-      <text x="28" y="172"><tspan fill="#ffa657">State:</tspan><tspan x="140" fill="#3fb950">LowCache / High Throughput</tspan></text>
+      <text x="28" y="196"><tspan fill="#ffa657">State:</tspan><tspan x="140" fill="#3fb950">LowCache / High Throughput</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.02s" fill="freeze"/>
-      <text x="28" y="196"><tspan fill="#ffa657">Distro:</tspan><tspan x="140" fill="#c9d1d9">Linux — Volatile NixOS</tspan></text>
+      <text x="28" y="220"><tspan fill="#ffa657">Distro:</tspan><tspan x="140" fill="#c9d1d9">Linux — Volatile NixOS</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.14s" fill="freeze"/>
-      <text x="140" y="220" fill="#8b949e">tmpfs root · impermanent by design · volatile by nature</text>
+      <text x="140" y="244" fill="#8b949e">tmpfs root · impermanent by design · volatile by nature</text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.26s" fill="freeze"/>
-      <text x="28" y="244"><tspan fill="#ffa657">Stack:</tspan><tspan x="140" fill="#c9d1d9">shell · go · python · nix · nim · typescript</tspan></text>
+      <text x="28" y="268"><tspan fill="#ffa657">Stack:</tspan><tspan x="140" fill="#c9d1d9">shell · go · python · nix · nim · typescript</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.38s" fill="freeze"/>
-      <text x="28" y="268"><tspan fill="#ffa657">Focus:</tspan><tspan x="140" fill="#c9d1d9">nix derivations · declarative everything · minimal permanence</tspan></text>
+      <text x="28" y="292"><tspan fill="#ffa657">Focus:</tspan><tspan x="140" fill="#c9d1d9">nix derivations · declarative everything · minimal permanence</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.5s" fill="freeze"/>
-      <text x="140" y="292" fill="#8b949e">tiling windows · ai integration</text>
+      <text x="140" y="316" fill="#8b949e">tiling windows · ai integration</text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.62s" fill="freeze"/>
-      <text x="28" y="316"><tspan fill="#ffa657">Support:</tspan><tspan x="140" fill="#e6edf3">Generative-AI Anonymous</tspan></text>
+      <text x="28" y="340"><tspan fill="#ffa657">Support:</tspan><tspan x="140" fill="#e6edf3">Generative-AI Anonymous</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.74s" fill="freeze"/>
-      <text x="140" y="340"><tspan fill="#8b949e" font-style="italic">"Hi, I'm LowCache and I use generative ai as a tool"</tspan><tspan fill="#3fb950" dx="8">— Hi! LowCache</tspan></text>
+      <text x="140" y="364"><tspan fill="#8b949e" font-style="italic">"Hi, I'm LowCache and I use generative ai as a tool"</tspan><tspan fill="#3fb950" dx="8">— Hi! LowCache</tspan></text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.86s" fill="freeze"/>
-      <text x="140" y="364" fill="#8b949e" font-style="italic">"I don't have a problem, I have a solution..."</text>
+      <text x="140" y="388" fill="#8b949e" font-style="italic">"I don't have a problem, I have a solution..."</text>
     </g>
 
     <!-- final prompt + blinking cursor -->
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="6.6s" fill="freeze"/>
-      <text x="28" y="412"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
+      <text x="28" y="438"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
     </g>
-    <rect x="214" y="399" width="9" height="17" fill="#e6edf3" opacity="0">
+    <rect x="214" y="425" width="9" height="17" fill="#e6edf3" opacity="0">
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.5;0.51;1" dur="1.2s" begin="6.6s" repeatCount="indefinite"/>
     </rect>
 
     <!-- crt texture -->
-    <rect x="1.5" y="40" width="877" height="391" fill="url(#scanlines)"/>
+    <rect x="1.5" y="40" width="877" height="415" fill="url(#scanlines)"/>
   </g>
 </svg>
