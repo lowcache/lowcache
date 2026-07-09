@@ -2,26 +2,26 @@
   <rect x="1" y="1" width="878" height="292" rx="12" fill="#0d1117" stroke="#21262d" stroke-width="1.5"/>
   <rect x="14" y="14" width="852" height="30" rx="6" fill="#161b22"/>
   <text x="28" y="34"><tspan fill="#3fb950" font-weight="bold">$</tspan><tspan fill="#c9d1d9" dx="8">gh-stats --user lowcache</tspan></text>
-  <text x="28" y="76"><tspan fill="#ffa657">repos:</tspan><tspan fill="#c9d1d9" dx="8">12 public</tspan><tspan fill="#ffa657" dx="40">stars:</tspan><tspan fill="#c9d1d9" dx="8">6</tspan><tspan fill="#ffa657" dx="40">on github since:</tspan><tspan fill="#c9d1d9" dx="8">2022</tspan></text>
+  <text x="28" y="76"><tspan fill="#ffa657">repos:</tspan><tspan fill="#c9d1d9" dx="8">11 public</tspan><tspan fill="#ffa657" dx="40">stars:</tspan><tspan fill="#c9d1d9" dx="8">7</tspan><tspan fill="#ffa657" dx="40">on github since:</tspan><tspan fill="#c9d1d9" dx="8">2022</tspan></text>
   <text x="28" y="102" fill="#8b949e"># top languages by weight, all public repos</text>
   <text x="28" y="130" fill="#c9d1d9">python</text>
   <rect x="250" y="118" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="118" width="214" height="14" rx="3" fill="#3fb950" opacity="0.95">
-    <animate attributeName="width" from="0" to="214" begin="0.20s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="118" width="215" height="14" rx="3" fill="#3fb950" opacity="0.95">
+    <animate attributeName="width" from="0" to="215" begin="0.20s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="130" fill="#ffa657">44.6%</text>
+  <text x="746" y="130" fill="#ffa657">44.8%</text>
   <text x="28" y="156" fill="#c9d1d9">typescript</text>
   <rect x="250" y="144" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="144" width="92" height="14" rx="3" fill="#3fb950" opacity="0.83">
-    <animate attributeName="width" from="0" to="92" begin="0.32s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="144" width="93" height="14" rx="3" fill="#3fb950" opacity="0.83">
+    <animate attributeName="width" from="0" to="93" begin="0.32s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="156" fill="#ffa657">19.2%</text>
+  <text x="746" y="156" fill="#ffa657">19.3%</text>
   <text x="28" y="182" fill="#c9d1d9">nix</text>
   <rect x="250" y="170" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="170" width="41" height="14" rx="3" fill="#3fb950" opacity="0.71">
-    <animate attributeName="width" from="0" to="41" begin="0.44s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="170" width="45" height="14" rx="3" fill="#3fb950" opacity="0.71">
+    <animate attributeName="width" from="0" to="45" begin="0.44s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="182" fill="#ffa657">8.6%</text>
+  <text x="746" y="182" fill="#ffa657">9.3%</text>
   <text x="28" y="208" fill="#c9d1d9">luau</text>
   <rect x="250" y="196" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="196" width="28" height="14" rx="3" fill="#3fb950" opacity="0.59">
@@ -34,10 +34,10 @@
     <animate attributeName="width" from="0" to="24" begin="0.68s" dur="0.7s" fill="freeze"/>
   </rect>
   <text x="746" y="234" fill="#ffa657">5.0%</text>
-  <text x="28" y="260" fill="#c9d1d9">shell</text>
+  <text x="28" y="260" fill="#c9d1d9">javascript</text>
   <rect x="250" y="248" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="248" width="20" height="14" rx="3" fill="#3fb950" opacity="0.35">
-    <animate attributeName="width" from="0" to="20" begin="0.80s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="248" width="19" height="14" rx="3" fill="#3fb950" opacity="0.35">
+    <animate attributeName="width" from="0" to="19" begin="0.80s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="260" fill="#ffa657">4.3%</text>
+  <text x="746" y="260" fill="#ffa657">4.0%</text>
 </svg>
