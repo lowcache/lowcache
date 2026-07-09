@@ -63,7 +63,7 @@
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.14s" fill="freeze"/>
-      <text x="140" y="244" fill="#8b949e">tmpfs root · impermanent by design · volatile by nature</text>
+      <text x="140" y="244" fill="#c9d1d9">tmpfs root · impermanent by design · volatile by nature</text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.26s" fill="freeze"/>
@@ -75,7 +75,7 @@
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.5s" fill="freeze"/>
-      <text x="140" y="316" fill="#8b949e">tiling windows · ai integration</text>
+      <text x="140" y="316" fill="#c9d1d9">tiling windows · ai integration</text>
     </g>
     <g opacity="0">
       <set attributeName="opacity" to="1" begin="5.62s" fill="freeze"/>
