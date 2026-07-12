@@ -6,22 +6,22 @@
   <text x="28" y="102" fill="#8b949e"># top languages by weight, all public repos</text>
   <text x="28" y="130" fill="#c9d1d9">python</text>
   <rect x="250" y="118" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="118" width="230" height="14" rx="3" fill="#3fb950" opacity="0.95">
-    <animate attributeName="width" from="0" to="230" begin="0.20s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="118" width="233" height="14" rx="3" fill="#3fb950" opacity="0.95">
+    <animate attributeName="width" from="0" to="233" begin="0.20s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="130" fill="#ffa657">47.9%</text>
+  <text x="746" y="130" fill="#ffa657">48.6%</text>
   <text x="28" y="156" fill="#c9d1d9">typescript</text>
   <rect x="250" y="144" width="480" height="14" rx="3" fill="#21262d"/>
-  <rect x="250" y="144" width="86" height="14" rx="3" fill="#3fb950" opacity="0.83">
-    <animate attributeName="width" from="0" to="86" begin="0.32s" dur="0.7s" fill="freeze"/>
+  <rect x="250" y="144" width="85" height="14" rx="3" fill="#3fb950" opacity="0.83">
+    <animate attributeName="width" from="0" to="85" begin="0.32s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="156" fill="#ffa657">17.9%</text>
+  <text x="746" y="156" fill="#ffa657">17.8%</text>
   <text x="28" y="182" fill="#c9d1d9">nix</text>
   <rect x="250" y="170" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="170" width="43" height="14" rx="3" fill="#3fb950" opacity="0.71">
     <animate attributeName="width" from="0" to="43" begin="0.44s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="182" fill="#ffa657">9.0%</text>
+  <text x="746" y="182" fill="#ffa657">8.9%</text>
   <text x="28" y="208" fill="#c9d1d9">luau</text>
   <rect x="250" y="196" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="196" width="27" height="14" rx="3" fill="#3fb950" opacity="0.59">
@@ -33,7 +33,7 @@
   <rect x="250" y="222" width="22" height="14" rx="3" fill="#3fb950" opacity="0.47">
     <animate attributeName="width" from="0" to="22" begin="0.68s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="234" fill="#ffa657">4.7%</text>
+  <text x="746" y="234" fill="#ffa657">4.6%</text>
   <text x="28" y="260" fill="#c9d1d9">javascript</text>
   <rect x="250" y="248" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="248" width="18" height="14" rx="3" fill="#3fb950" opacity="0.35">
