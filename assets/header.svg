@@ -11,18 +11,18 @@
     </pattern>
     <clipPath id="typeCmd1"><rect x="212" y="60" width="0" height="22"><animate attributeName="width" from="0" to="110" begin="0.9s" dur="0.6s" fill="freeze"/></rect></clipPath>
     <clipPath id="typeCmd2"><rect x="212" y="156" width="0" height="22"><animate attributeName="width" from="0" to="380" begin="3.1s" dur="1.5s" fill="freeze"/></rect></clipPath>
-    <clipPath id="frame"><rect x="1.5" y="1.5" width="877" height="429" rx="12"/></clipPath>
+    <clipPath id="frame"><rect x="1.5" y="1.5" width="882" height="453" rx="12"/></clipPath>
   </defs>
 
   <!-- window -->
-  <rect x="1.5" y="1.5" width="885" height="456" rx="12" fill="#0d1117" stroke="url(#borderGrad)" stroke-width="2"/>
+  <rect x="1.5" y="1.5" width="882" height="453" rx="12" fill="#0d1117" stroke="url(#borderGrad)" stroke-width="2"/>
   <g clip-path="url(#frame)">
-    <rect x="1.5" y="1.5" width="885" height="38" fill="#161b22"/>
-    <rect x="1.5" y="39" width="885" height="1" fill="#21262d"/>
+    <rect x="1.5" y="1.5" width="882" height="38" fill="#161b22"/>
+    <rect x="1.5" y="39" width="882" height="1" fill="#21262d"/>
     <circle cx="26" cy="20.5" r="6" fill="#ff5f56"/>
     <circle cx="46" cy="20.5" r="6" fill="#ffbd2e"/>
     <circle cx="66" cy="20.5" r="6" fill="#27c93f"/>
-    <text x="440" y="25" text-anchor="middle" fill="#8b949e" font-size="12">lowcache@localhost: ~</text>
+    <text x="442.5" y="25" text-anchor="middle" fill="#8b949e" font-size="12">lowcache@localhost: ~</text>
 
     <!-- line 1: prompt + whoami -->
     <g opacity="0">
@@ -95,11 +95,11 @@
       <set attributeName="opacity" to="1" begin="6.6s" fill="freeze"/>
       <text x="28" y="415"><tspan fill="#3fb950" font-weight="bold">lowcache@localhost</tspan><tspan fill="#c9d1d9">:</tspan><tspan fill="#79c0ff" font-weight="bold">~</tspan><tspan fill="#c9d1d9">$</tspan></text>
     </g>
-    <rect x="214" y="399" width="9" height="17" fill="#e6edf3" opacity="0">
+    <rect x="214" y="402" width="9" height="17" fill="#e6edf3" opacity="0">
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.5;0.51;1" dur="1.2s" begin="6.6s" repeatCount="indefinite"/>
     </rect>
 
     <!-- crt texture -->
-    <rect x="1.5" y="40" width="888" height="415" fill="url(#scanlines)"/>
+    <rect x="1.5" y="40" width="882" height="414" fill="url(#scanlines)"/>
   </g>
 </svg>
