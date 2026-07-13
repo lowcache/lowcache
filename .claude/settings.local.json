@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -e 's/ opacity=\"0\"//g' -e 's/width=\"0\" height=\"22\"/width=\"500\" height=\"22\"/g' /home/lowcache/CodeRepo/lowcache/assets/header.svg)",
+      "Bash(magick -background none -density 96 header_static.svg header_static.png)"
+    ]
+  }
+}
