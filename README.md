@@ -14,6 +14,9 @@
   <img src="assets/header.svg" width="100%" alt="animated terminal: lowcache@localhost — jarred robinson, self-taught, freelance, 10+ years of linux" />
   <img src="assets/divider.svg" width="100%" alt="" />
 </div>
+<div align="center">
+  <a href="https://infernalcode.com"><img src="assets/stopslop.png" width="80%" alt="infernalcode.com"></a>
+</div>
 
 ## `$ ls ~/work`
 | repo | what it is |
