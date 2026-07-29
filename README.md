@@ -15,7 +15,7 @@
   <img src="assets/divider.svg" width="100%" alt="" />
 </div>
 <div align="center">
-  <a href="https://infernalcode.com"><img src="assets/stopslop.png" width="80%" alt="infernalcode.com"></a>
+  <a href="https://infernalcode.com"><img src="assets/stopslop.png" width="50%" alt="infernalcode.com"></a>
 </div>
 
 ## `$ ls ~/work`
