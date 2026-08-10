@@ -15,7 +15,7 @@
   <rect x="250" y="144" width="82" height="14" rx="3" fill="#3fb950" opacity="0.83">
     <animate attributeName="width" from="0" to="82" begin="0.32s" dur="0.7s" fill="freeze"/>
   </rect>
-  <text x="746" y="156" fill="#ffa657">17.1%</text>
+  <text x="746" y="156" fill="#ffa657">17.0%</text>
   <text x="28" y="182" fill="#c9d1d9">luau</text>
   <rect x="250" y="170" width="480" height="14" rx="3" fill="#21262d"/>
   <rect x="250" y="170" width="57" height="14" rx="3" fill="#3fb950" opacity="0.71">
