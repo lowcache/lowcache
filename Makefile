@@ -7,11 +7,12 @@ PY_ENV := python3.withPackages(p:[p.fonttools p.brotli])
 NIXSH  := nix-shell -p '$(PY_ENV)' --run
 PORT   ?= 8731
 
-.PHONY: sheets stats preview serve clean help
+.PHONY: sheets avatar stats preview serve clean help
 
 help:
 	@echo 'make sheets   rebuild assets/*.svg from scripts/'
-	@echo 'make stats    regenerate assets/stats.svg from the GitHub API'
+	@echo 'make avatar   rebuild assets/avatar.svg + .png (profile picture)'
+	@echo 'make stats    refresh assets/stats.json from the GitHub API'
 	@echo 'make preview  serve the repo and print the preview URL (PORT=$(PORT))'
 	@echo 'make clean    drop __pycache__'
 
@@ -19,6 +20,12 @@ help:
 # drawset.fit() doing its job, not a broken build.
 sheets:
 	$(NIXSH) 'python3 scripts/build_sheets.py'
+
+# Emits both: the SVG is source of truth, the PNG is what GitHub accepts for an
+# avatar upload (it rejects SVG). Rasterised through librsvg, not ImageMagick's
+# internal renderer.
+avatar:
+	python3 scripts/build_avatar.py
 
 stats:
 	python3 scripts/gen-stats.py
