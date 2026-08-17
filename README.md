@@ -1,35 +1,39 @@
+<!--
+  github.com/lowcache — sheet set LC-000 … LC-900.
+
+  Every image here is build output. Do not hand-edit assets/*.svg; edit
+  scripts/build_sheets.py and run `make sheets`. See scripts/drawset.py.
+
+  No markdown headings on purpose: the sheets carry their own typography, and
+  GitHub's h1/h2 styling would cut across it. No external images or badges
+  either, so nothing here can break when someone else's service goes down.
+-->
+
+<div align="center">
+
+<img src="assets/sheet-lc000.svg" width="100%" alt="Sheet LC-000, general arrangement. Lowcache — Jarred Robinson, self-taught, ten-plus years on Linux, currently freelance. An exploded isometric drawing of the workstation in five layers: agents tooling, Nix, a tmpfs root marked in redline as the volatile layer, /persist durable state, and the hardware chassis. A datum line across the drawing reads volatile above, re-derived every boot.">
+
+<img src="assets/sheet-lc100.svg" width="100%" alt="Sheet LC-100, repository index. Five repositories: volnixos, a NixOS workstation with a tmpfs root; mcp-box, isolated Linux containers for MCP servers; memd, project memory for coding agents; volinit, a shell-init sysinfo fetch in Nim; and noctalia-claude-plugin, a Claude Code plugin for the Noctalia desktop shell.">
+
+</div>
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Linux-0d1117?style=for-the-badge&logo=linux&logoColor=c9d1d9" alt="Linux" />
-  <img src="https://img.shields.io/badge/NixOS-0d1117?style=for-the-badge&logo=nixos&logoColor=7ee787" alt="NixOS" />
+  <a href="https://github.com/lowcache/volnixos">volnixos</a> ·
+  <a href="https://github.com/lowcache/mcp-box">mcp-box</a> ·
+  <a href="https://github.com/lowcache/memd">memd</a> ·
+  <a href="https://github.com/lowcache/volinit">volinit</a> ·
+  <a href="https://github.com/lowcache/noctalia-claude-plugin">noctalia-claude-plugin</a>
 </p>
+
+<div align="center">
+
+<img src="assets/sheet-lc200.svg" width="100%" alt="Sheet LC-200, survey. Eleven public repositories, five stars, six languages, on GitHub since 2022. Language distribution by weight across all public repositories, led by Python at 48 percent, then Nix, Luau, Shell, HTML and Nim.">
+
+<img src="assets/sheet-lc900.svg" width="100%" alt="Sheet LC-900, title block. Titled Lowcache — general arrangement, drawn by lowcache, sheets LC-000 through LC-900, revision 2026-08-17, scale not to scale.">
+
+</div>
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Shell-0d1117?style=for-the-badge&logo=gnubash&logoColor=3fb950" alt="Shell" />
-  <img src="https://img.shields.io/badge/Go-0d1117?style=for-the-badge&logo=go&logoColor=79c0ff" alt="Go" />
-  <img src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=ffa657" alt="Python" />
-  <img src="https://img.shields.io/badge/Nim-0d1117?style=for-the-badge&logo=nim&logoColor=ffd33d" alt="Nim" />
-  <img src="https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=79c0ff" alt="TypeScript" />
+  <a href="https://infernalcode.com">infernalcode.com</a> ·
+  <a href="https://wiki.infernalcode.com">wiki.infernalcode.com</a>
 </p>
-
-<div align="center">
-  <img src="assets/header.svg" width="100%" alt="animated terminal: lowcache@localhost — jarred robinson, self-taught, freelance, 10+ years of linux" />
-  <img src="assets/divider.svg" width="100%" alt="" />
-</div>
-<div align="center">
-  <a href="https://infernalcode.com"><img src="assets/stopslop.png" width="50%" alt="infernalcode.com"></a>
-</div>
-
-## `$ ls ~/work`
-| repo | what it is |
-| --- | --- |
-| [volnixos](https://github.com/lowcache/volnixos) | nix configuration with a volatile tmpfs root — the impermanence paradigm, committed to |
-| [volinit](https://github.com/lowcache/volinit) | shell-init sys-info fetch in nim, with custom ascii artwork |
-| [mcp-box](https://github.com/lowcache/mcp-box) | highly isolated linux containers built for MCP servers — secure agent tool execution |
-| [noctalia-claude-plugin](https://github.com/lowcache/noctalia-claude-plugin) | claude code plugin for the noctalia desktop shell |
-| [memd](https://github.com/lowcache/memd) | project memory for coding agents |
-
-## `$ gh stats`
-<div align="center">
-  <img src="assets/stats.svg" width="100%" alt="github stats: repos, stars, top languages" />
-</div>
-
-

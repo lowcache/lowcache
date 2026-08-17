@@ -1,0 +1,87 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>LOWCACHE drawing set — preview</title>
+<!--
+  Serve from the REPO ROOT (make preview), then open
+  http://127.0.0.1:8731/scripts/preview.html
+
+  Why this file exists: sheets must be checked as <img> sources, because that is
+  how GitHub embeds README images. Opening an .svg as a top-level document is a
+  false positive -- animation runs and external fonts load there, and neither
+  happens inside <img>. Verified in Chromium 151.
+-->
+<style>
+  :root { color-scheme: dark }
+  body { margin:0; background:#010409; color:#e6edf3;
+         font:14px -apple-system,system-ui,"Segoe UI",sans-serif }
+  .page { max-width:1012px; margin:0 auto; padding:28px 16px 80px }
+  /* approximates GitHub's README container: 6px radius, 1px border, dark bg */
+  .readme { border:1px solid #30363d; border-radius:6px; background:#0d1117;
+            padding:32px 40px }
+  .readme img { max-width:100%; box-sizing:content-box; display:block; margin:0 auto }
+  h1 { font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+       color:#7d8590; margin:0 0 12px; padding-left:2px }
+  .bar { display:flex; gap:8px; align-items:center; margin:0 0 20px; padding-left:2px;
+         font:11px ui-monospace,monospace; color:#7d8590; letter-spacing:.08em }
+  .bar button { font:inherit; letter-spacing:inherit; color:#e6edf3; background:#21262d;
+                border:1px solid #30363d; border-radius:4px; padding:4px 10px; cursor:pointer }
+  .bar button[aria-pressed=true] { background:#ff3d8e; border-color:#ff3d8e; color:#0b1016 }
+  .miss { font:12px ui-monospace,monospace; color:#7d8590; border:1px dashed #30363d;
+          border-radius:4px; padding:14px; margin:0 0 16px; text-align:center }
+  .ruler { position:relative; height:0 }
+  /* 880px reference gutters: if a sheet's content crowds these, it is too wide */
+  body.guides .readme { background-image:linear-gradient(to right,
+      rgba(255,61,142,.16) 0 1px, transparent 1px 100%); background-size:40px 100%;
+      background-position:40px 0 }
+</style>
+<div class="page">
+  <h1>Profile sheets — rendered via &lt;img&gt;, GitHub README container</h1>
+  <div class="bar">
+    <button id="g" aria-pressed="false">40px grid</button>
+    <button id="w" aria-pressed="false">narrow (768px)</button>
+    <span id="status"></span>
+  </div>
+  <div class="readme" id="readme"></div>
+</div>
+<script>
+  // Sheets are listed in README order. Missing ones render a placeholder rather
+  // than a broken image, so this file stays valid as the set is built out.
+  const SHEETS = [
+    ['../assets/sheet-lc000.svg', 'LC-000 general arrangement'],
+    ['../assets/sheet-lc100.svg', 'LC-100 repo index'],
+    ['../assets/sheet-lc200.svg', 'LC-200 survey'],
+    ['../assets/sheet-lc900.svg', 'LC-900 title block'],
+  ];
+  const box = document.getElementById('readme');
+  // Pre-create one slot per sheet so review order matches README order, not
+  // whichever image happens to decode first.
+  const slots = SHEETS.map(() => { const s = document.createElement('div');
+    box.appendChild(s); return s; });
+  let ok = 0, miss = 0;
+  const done = () => document.getElementById('status').textContent =
+    `${ok} sheet(s) loaded, ${miss} not built yet`;
+
+  SHEETS.forEach(([src, label], i) => {
+    const img = new Image();
+    img.alt = label;
+    img.onload = () => { slots[i].appendChild(img); ok++; done(); };
+    img.onerror = () => {
+      slots[i].className = 'miss';
+      slots[i].textContent = label + ' — not built yet (' + src.replace('../','') + ')';
+      miss++; done();
+    };
+    img.src = src + '?t=' + Date.now();   // defeat cache between rebuilds
+  });
+
+  const toggle = (btn, cls) => btn.onclick = () => {
+    const on = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!on));
+    document.body.classList.toggle(cls, !on);
+  };
+  toggle(document.getElementById('g'), 'guides');
+  document.getElementById('w').onclick = e => {
+    const b = e.currentTarget, on = b.getAttribute('aria-pressed') === 'true';
+    b.setAttribute('aria-pressed', String(!on));
+    document.querySelector('.page').style.maxWidth = on ? '1012px' : '768px';
+  };
+</script>

@@ -1,4 +1,4 @@
-name: refresh stats
+name: refresh survey
 
 on:
   schedule:
@@ -9,18 +9,26 @@ permissions:
   contents: write
 
 jobs:
-  stats:
+  survey:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: regenerate stats.svg
+
+      # Two steps, both stdlib-only: gen-stats fetches the data, build_sheets
+      # renders it. No pip install is needed because the font subsets are
+      # committed under assets/fonts/cache/ -- see scripts/build_fonts.py.
+      - name: fetch stats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/gen-stats.py lowcache
+
+      - name: rebuild sheets
+        run: python3 scripts/build_sheets.py
+
       - name: commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/stats.svg
-          git diff --cached --quiet || git commit -m "chore: refresh stats.svg"
+          git add assets/stats.json assets/sheet-lc200.svg
+          git diff --cached --quiet || git commit -m "chore: refresh survey (LC-200)"
           git push
