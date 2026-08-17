@@ -1,0 +1,50 @@
+<!doctype html>
+<meta charset="utf-8"><title>LOWCACHE — responsive check</title>
+<!--
+  Serve from the repo root (make preview), then open
+  http://127.0.0.1:8731/scripts/phone.html
+
+  Why iframes: <source media> keys off the VIEWPORT, and a tiling compositor
+  ignores programmatic window resizes, so neither a CSS container nor
+  resize_window can exercise the breakpoint. An iframe has its own viewport, so
+  media queries inside it evaluate against its width -- this is a real test.
+  Must be same-origin as preview.html for the report below to read into it.
+-->
+<body style="margin:0;background:#161b22;font:12px ui-monospace,monospace;color:#e6edf3">
+<div style="display:flex;gap:20px;padding:14px;align-items:flex-start;flex-wrap:wrap">
+  <div>
+    <div style="padding:6px 0;color:#ff3d8e">phone — 390x844 (below the 800px breakpoint)</div>
+    <iframe id="f" data-src="preview.html" width="390" height="780"
+            style="border:2px solid #ff3d8e;background:#0d1117"></iframe>
+  </div>
+  <div>
+    <div style="padding:6px 0;color:#5fb0d0">desktop — 900px (above it)</div>
+    <iframe id="g" data-src="preview.html" width="900" height="780"
+            style="border:2px solid #5fb0d0;background:#0d1117"></iframe>
+  </div>
+</div>
+<pre id="out" style="padding:14px;margin:0;color:#7c8899;line-height:1.6"></pre>
+<script>
+  // Bust the cache on the inner document too, or an edited preview.html keeps
+  // serving stale padding and the measured scale silently lies.
+  for (const f of document.querySelectorAll('iframe[data-src]'))
+    f.src = f.dataset.src + '?t=' + Date.now();
+
+  setTimeout(() => {
+    const rep = [];
+    for (const [id, label] of [['f', ' 390px'], ['g', ' 760px']]) {
+      const w = document.getElementById(id).contentWindow;
+      const hit = w.matchMedia('(max-width: 800px)').matches;
+      rep.push(`${label} viewport — matches (max-width:700px): ${hit}`);
+      for (const im of w.document.querySelectorAll('.readme img')) {
+        const file = im.currentSrc.split('/').pop().split('?')[0];
+        const px = Math.round(im.getBoundingClientRect().width);
+        const nat = im.naturalWidth;
+        rep.push(`     ${file.padEnd(28)} rendered ${String(px).padStart(4)}px  ` +
+                 `natural ${nat}px  scale ${(px / nat).toFixed(2)}x`);
+      }
+    }
+    document.getElementById('out').textContent = rep.join('\n');
+  }, 2000);
+</script>
+</body>

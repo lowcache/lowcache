@@ -59,13 +59,15 @@ IDENT = [
     ("EDU", "ba english"),
 ]
 
-NOTES = [
-    "Self-taught. Ten-plus years on Linux, currently freelance.",
-    "The assembly below is drawn as the machine actually runs: a NixOS",
-    "workstation whose root filesystem lives in RAM and is destroyed on",
-    "every boot. Everything durable is mapped by name; everything else is",
-    "re-derived from a flake — including the tooling I build for agents.",
-]
+# Stored as one string and wrapped per layout, so the wide and narrow sheets
+# cannot drift apart in wording.
+NOTES_TEXT = (
+    "Self-taught. Ten-plus years on Linux, currently freelance. The assembly "
+    "below is drawn as the machine actually runs: a NixOS workstation whose root "
+    "filesystem lives in RAM and is destroyed on every boot. Everything durable "
+    "is mapped by name; everything else is re-derived from a flake — including "
+    "the tooling I build for agents."
+)
 
 REVISIONS = [
     ("C", "2026-08-17", "agent tooling"),
@@ -143,9 +145,8 @@ def sheet_lc000() -> str:
 
     # -- general notes ----------------------------------------------------
     body.append(section_head(PAD, y_notes_head, "GENERAL NOTES", 560))
-    for i, line in enumerate(NOTES):
-        d.fit(line, "bw400", 15.5, 0, 520, f"LC-000 note {i+1}")
-        body.append(d.body(PAD, y_notes + i * notes_lh, line, 15.5, INK))
+    notes_svg, _ = d.paragraph(PAD, y_notes, NOTES_TEXT, "bw400", 15.5, 520, notes_lh, INK)
+    body.append(notes_svg)
 
     # -- revision block (right of the notes) ------------------------------
     body.append(section_head(rx, y_notes_head, "REVISIONS", RIGHT))
@@ -255,11 +256,11 @@ REPOS = [
     ("LC-105", "noctalia-claude-plugin", "Claude Code plugin for the Noctalia desktop shell", "ts"),
 ]
 
-TOOLING_NOTE = [
-    "Generative AI is in the loop here and I don't pretend otherwise. It holds",
-    "the work; I hold the judgement. Nothing ships that I can't explain line",
-    "by line — which is why the reasoning is committed alongside the code.",
-]
+TOOLING_NOTE_TEXT = (
+    "Generative AI is in the loop here and I don't pretend otherwise. It holds the "
+    "work; I hold the judgement. Nothing ships that I can't explain line by line — "
+    "which is why the reasoning is committed alongside the code."
+)
 
 
 def sheet_lc100() -> str:
@@ -279,7 +280,8 @@ def sheet_lc100() -> str:
     # Build the note first so the sheet height can be derived from it.
     y_note = y_rows + len(REPOS) * pitch + 22
     note, note_h = d.caution(
-        PAD, y_note, RIGHT - PAD, "GENERAL NOTE — ON TOOLING", TOOLING_NOTE,
+        PAD, y_note, RIGHT - PAD, "GENERAL NOTE — ON TOOLING",
+        d.wrap(TOOLING_NOTE_TEXT, "bw400", 14, RIGHT - PAD - 36),
     )
     H = y_note + note_h + 28 + MARGIN
 
@@ -375,7 +377,7 @@ def sheet_lc200() -> str:
     name_x = PAD
 
     tiles = [
-        ("PUBLIC REPOS", str(data["repos"])),
+        ("SOURCE REPOS", str(data["repos"])),
         ("STARS", str(data["stars"])),
         ("LANGUAGES", str(len(langs))),
         ("ON GITHUB SINCE", data["since"]),
@@ -473,6 +475,7 @@ LINKS = [
     ("BLOG", "infernalcode.com"),
     ("WIKI", "wiki.infernalcode.com"),
     ("CODE", "github.com/lowcache"),
+    ("TIPS", "buymeacoffee.com/lowcache"),
 ]
 
 
@@ -528,12 +531,311 @@ def sheet_lc900() -> str:
     )
 
 
+# ======================================================== NARROW VARIANTS =====
+# Served by <picture media="(max-width: 700px)"> in the README. Verified against
+# GitHub's markdown pipeline: the sanitizer preserves <source media> with width
+# queries, not just the well-known prefers-color-scheme one.
+#
+# Authored at 460 wide rather than reusing the 880 layout, because a phone
+# renders the README at roughly 340-360 CSS px. Scaling the wide sheet to fit
+# takes its 9.5px sheet labels down to under 4px -- present but unreadable. At
+# 460 the same content lands near 0.75x on a phone and stays legible, and type
+# sizes are raised on top of that.
+NW = 460
+NMARGIN = 10
+NPAD = 24
+NRIGHT = NW - NPAD
+
+
+def _narrow_frame(H: float) -> list[str]:
+    return [
+        f'<rect x="{NMARGIN}" y="{NMARGIN}" width="{NW-2*NMARGIN}" height="{H-2*NMARGIN}" '
+        f'fill="none" stroke="{HAIR}" stroke-width="{LW_THIN}"/>',
+        d.corner_marks(NMARGIN, NMARGIN, NW - 2 * NMARGIN, H - 2 * NMARGIN, arm=16),
+    ]
+
+
+def _narrow_rail(code: str, title: str, right: str) -> list[str]:
+    """Stacked rail: the code/title pair, with the revision on its own line, since
+    all three on one line does not fit 460."""
+    return [
+        d.label(NPAD, 38, code, "jb700", 11.5, 2.2, MARK),
+        d.label(NRIGHT, 38, right, "jb400", 10.5, 1.8, INK3, anchor="end"),
+        d.label(NPAD, 56, title, "jb400", 10.5, 2.2, INK3),
+        d.rule(NPAD, 68, NRIGHT),
+    ]
+
+
+def sheet_lc000_narrow() -> str:
+    y = 0
+    body: list[str] = []
+    body += _narrow_rail("LC-000", "GENERAL ARRANGEMENT", f"REV {REV}")
+
+    d.fit("Lowcache", "bc700", 56, -1.57, NRIGHT - NPAD, "LC-000n display")
+    body.append(d.display(NPAD - 1, 120, "Lowcache", 56))
+    body.append(d.label(NPAD, 144, "JARRED ROBINSON", "bc600", 15, 2.2, INK2))
+    body.append(d.rule(NPAD, 160, NRIGHT))
+
+    # identity block: label above value, stacked in two columns
+    y = 186
+    for i, (k, v) in enumerate(IDENT):
+        col = i % 2
+        row = i // 2
+        ix = NPAD + col * ((NRIGHT - NPAD) / 2)
+        iy = y + row * 40
+        body.append(d.label(ix, iy, k, "jb400", 10, 1.6, INK3))
+        d.fit(v, "bw500", 14, 0, (NRIGHT - NPAD) / 2 - 12, f"LC-000n ident {k}")
+        body.append(d.body(ix, iy + 17, v, 14, INK2, key="bw500"))
+    y += 40 * ((len(IDENT) + 1) // 2) + 8
+    body.append(d.rule(NPAD, y, NRIGHT))
+
+    # general notes
+    y += 30
+    body.append(section_head(NPAD, y, "GENERAL NOTES", NRIGHT))
+    y += 24
+    notes_svg, y = d.paragraph(NPAD, y, NOTES_TEXT, "bw400", 15, NRIGHT - NPAD, 22, INK)
+    body.append(notes_svg)
+
+    # assembly drawing, scaled down
+    y += 26
+    body.append(section_head(NPAD, y, "ASSEMBLY — EXPLODED, NTS", NRIGHT))
+    cx = 148
+    pw, pd, pt = 104.0, 66.0, 7.0
+    gap = 30
+    half_w = (pw + pd) * d.COS30 / 2
+    y_base = y + 42 + (len(LAYERS) - 1) * gap + (pw + pd) * d.SIN30 / 2
+    body.append(d.vrule(cx, y_base - (len(LAYERS) - 1) * gap - 54, y_base + 54,
+                        INK3, LW_HAIR, dash="3 5"))
+
+    plates = []
+    for i, (num, name, cat, note, active) in enumerate(LAYERS):
+        cy = y_base - i * gap
+        g, anchors = d.plate(cx, cy, pw, pd, pt, 1.0,
+                             MARK if active else INK2,
+                             "url(#markhatch)" if active else PAPER3, PAPER2,
+                             1.0, LW_MED if active else LW_THIN)
+        body.append(g)
+        plates.append((num, name, cy, anchors, active))
+
+    bx = 306
+    for num, name, cy, anchors, active in plates:
+        ay = cy - pt
+        body.append(d.leader(anchors["right"][0], ay, bx - 12, ay,
+                             MARK if active else INK3))
+        body.append(d.balloon(bx, ay, num, 11, active))
+        lbl = name.upper()
+        d.fit(lbl, "jb700", 10, 1.4, NRIGHT - (bx + 20), f"LC-000n callout {num}")
+        body.append(d.label(bx + 20, ay + 3.5, lbl, "jb700" if active else "jb400",
+                            10, 1.4, MARK if active else INK2))
+
+    y_datum = (plates[2][2] + plates[1][2]) / 2 - pt
+    body.append(d.rule(cx - half_w - 14, y_datum, bx - 26, CONS, LW_HAIR, dash="6 4"))
+    y = y_base + 62
+    body.append(d.label(NPAD, y, "VOLATILE ABOVE", "jb700", 10.5, 1.8, CONS))
+    body.append(d.body(NPAD + 135, y, "re-derived every boot", 13, INK3))
+
+    # parts list, stacked
+    y += 32
+    body.append(section_head(NPAD, y, "PARTS LIST", NRIGHT))
+    y += 22
+    for num, name, cat, note, active in reversed(LAYERS):
+        body.append(d.balloon(NPAD + 11, y + 4, num, 11, active))
+        body.append(d.display(NPAD + 32, y + 8, name, 17, MARK if active else INK,
+                              tracking=-0.3))
+        nw = d.text_width(name, "bc700", 17, -0.3)
+        body.append(d.label(NPAD + 38 + nw, y + 7, cat, "jb400", 9.5, 1.5, INK3))
+        blk, y2 = d.paragraph(NPAD + 32, y + 26, note, "bw400", 13.5,
+                              NRIGHT - (NPAD + 32), 18, INK2)
+        body.append(blk)
+        y = y2 + 12
+        body.append(d.rule(NPAD, y - 6, NRIGHT, HAIR, LW_HAIR))
+
+    H = y + 18 + NMARGIN
+    return (
+        d.svg_open(
+            NW, H, ["bc700", "bc600", "bw400", "bw500", "jb400", "jb700"],
+            "Lowcache — sheet LC-000, general arrangement",
+            "Narrow-viewport edition of sheet LC-000. Same content as the wide "
+            "sheet: nameplate, general notes, and an exploded isometric assembly "
+            "with the volatile tmpfs root marked in redline.",
+            extra_defs=d.hatch("markhatch", MARK, 0.20, 5.0),
+        )
+        + "".join(_narrow_frame(H)) + "".join(body) + d.svg_close()
+    )
+
+
+def sheet_lc100_narrow() -> str:
+    body: list[str] = []
+    body += _narrow_rail("LC-100", "SHEET INDEX", f"REV {REV}")
+
+    d.fit("Repositories", "bc700", 44, -1.23, NRIGHT - NPAD, "LC-100n display")
+    body.append(d.display(NPAD - 1, 112, "Repositories", 44))
+    body.append(d.rule(NPAD, 130, NRIGHT))
+
+    y = 158
+    for code, name, desc, stack in REPOS:
+        body.append(d.label(NPAD, y, code, "jb700", 11.5, 1.2, MARK))
+        body.append(d.label(NRIGHT, y, stack, "jb400", 10.5, 1.2, INK3, anchor="end"))
+        d.fit(name, "bc700", 20, -0.36, NRIGHT - NPAD, f"LC-100n name {code}")
+        body.append(d.display(NPAD, y + 22, name, 20, INK, tracking=-0.36))
+        blk, y2 = d.paragraph(NPAD, y + 42, desc, "bw400", 13.5,
+                              NRIGHT - NPAD, 18, INK2)
+        body.append(blk)
+        y = y2 + 14
+        body.append(d.rule(NPAD, y - 8, NRIGHT, HAIR, LW_HAIR))
+
+    y += 12
+    note, note_h = d.caution(
+        NPAD, y, NRIGHT - NPAD, "ON TOOLING",
+        d.wrap(TOOLING_NOTE_TEXT, "bw400", 13.5, NRIGHT - NPAD - 32),
+        lh=19.0, pad=14.0,
+    )
+    body.append(note)
+
+    H = y + note_h + 20 + NMARGIN
+    return (
+        d.svg_open(
+            NW, H, ["bc700", "bw400", "jb400", "jb700"],
+            "Lowcache — sheet LC-100, repository index",
+            "Narrow-viewport edition of the repository index: volnixos, mcp-box, "
+            "memd, volinit and noctalia-claude-plugin, each with its contents and "
+            "primary stack, closing on a note about generative AI in the work.",
+            extra_defs=d.hatch("cauthatch", MARK, 0.20, 5.0),
+        )
+        + "".join(_narrow_frame(H)) + "".join(body) + d.svg_close()
+    )
+
+
+def sheet_lc200_narrow() -> str:
+    import json
+
+    src = OUT / "stats.json"
+    if not src.exists():
+        raise SystemExit("assets/stats.json is missing. Run `make stats` first.")
+    data = json.loads(src.read_text(encoding="utf-8"))
+    langs = data["languages"]
+    rev = data.get("generated", REV)
+
+    body: list[str] = []
+    body += _narrow_rail("LC-200", "SURVEY", f"SURVEYED {rev}")
+
+    d.fit("Survey", "bc700", 44, -1.23, NRIGHT - NPAD, "LC-200n display")
+    body.append(d.display(NPAD - 1, 112, "Survey", 44))
+    body.append(d.rule(NPAD, 130, NRIGHT))
+
+    tiles = [
+        ("SOURCE REPOS", str(data["repos"])),
+        ("STARS", str(data["stars"])),
+        ("LANGUAGES", str(len(langs))),
+        ("SINCE", data["since"]),
+    ]
+    # 2x2 grid: four tiles will not fit one row at 460
+    y = 158
+    half = (NRIGHT - NPAD) / 2
+    for i, (k, v) in enumerate(tiles):
+        tx = NPAD + (i % 2) * half
+        ty = y + (i // 2) * 58
+        body.append(d.label(tx, ty, k, "jb400", 10, 1.6, INK3))
+        d.fit(v, "bc700", 34, -0.95, half - 12, f"LC-200n tile {k}")
+        body.append(d.display(tx - 1, ty + 32, v, 34, INK))
+    y += 58 * 2 + 4
+    body.append(d.rule(NPAD, y, NRIGHT))
+
+    y += 28
+    body.append(section_head(NPAD, y, "LANGUAGE DISTRIBUTION", NRIGHT))
+    y += 24
+    bar_h = 11
+    for ln in langs:
+        name = ln["name"].lower()
+        pct = float(ln["pct"])
+        body.append(d.body(NPAD, y, name, 14.5, INK, key="bw500"))
+        body.append(d.label(NRIGHT, y, f"{pct:.1f}%", "jb400", 11.5, 0.4, INK2,
+                            anchor="end"))
+        by = y + 8
+        w = max((NRIGHT - NPAD) * pct / 100.0, 3.0)
+        body.append(
+            f'<rect x="{d.f(NPAD)}" y="{d.f(by)}" width="{d.f(NRIGHT-NPAD)}" '
+            f'height="{bar_h}" fill="{PAPER3}"/>'
+        )
+        body.append(
+            f'<rect x="{d.f(NPAD)}" y="{d.f(by)}" width="{d.f(w)}" height="{bar_h}" '
+            f'rx="3" fill="{BAR_HUE}"/>'
+        )
+        y = by + bar_h + 20
+
+    # axis
+    body.append(d.rule(NPAD, y, NRIGHT, HAIR, LW_THIN))
+    for t in (0, 50, 100):
+        tx = NPAD + (NRIGHT - NPAD) * t / 100.0
+        body.append(d.vrule(tx, y, y + 5, HAIR, LW_THIN))
+        body.append(d.label(tx, y + 18, f"{t}", "jb400", 10, 1.2, INK3,
+                            anchor="middle" if t == 50 else ("end" if t else "start")))
+    y += 18
+
+    H = y + 20 + NMARGIN
+    return (
+        d.svg_open(
+            NW, H, ["bc700", "bw400", "bw500", "jb400", "jb700"],
+            "Lowcache — sheet LC-200, survey",
+            "Narrow-viewport edition of the survey: "
+            + ", ".join(f"{k.lower()} {v}" for k, v in tiles)
+            + ". Language distribution: "
+            + ", ".join(f"{l['name']} {l['pct']}%" for l in langs) + ".",
+        )
+        + "".join(_narrow_frame(H)) + "".join(body) + d.svg_close()
+    )
+
+
+def sheet_lc900_narrow() -> str:
+    body: list[str] = []
+    y = 40
+    for i, (k, v) in enumerate(TITLE_BLOCK):
+        body.append(d.label(NPAD, y, k, "jb400", 10, 1.6, INK3))
+        if i == 0:
+            d.fit(v, "bc700", 17, -0.3, NRIGHT - NPAD, "LC-900n title")
+            body.append(d.display(NPAD, y + 20, v, 17, INK, tracking=-0.3))
+            y += 44
+        else:
+            d.fit(v, "bw400", 13.5, 0, NRIGHT - (NPAD + 62), f"LC-900n {k}")
+            body.append(d.body(NPAD + 62, y, v, 13.5, INK2))
+            y += 22
+    y += 10
+    body.append(d.rule(NPAD, y, NRIGHT))
+
+    y += 26
+    body.append(d.label(NPAD, y, "REFERENCE", "jb700", 10.5, 1.9, INK2))
+    y += 22
+    for k, v in LINKS:
+        body.append(d.label(NPAD, y, k, "jb400", 10, 1.6, INK3))
+        d.fit(v, "jb400", 12, 0.2, NRIGHT - (NPAD + 46), f"LC-900n link {k}")
+        body.append(d.label(NPAD + 46, y, v, "jb400", 12, 0.2, CONS))
+        y += 21
+
+    y += 8
+    body.append(d.rule(NPAD, y, NRIGHT, HAIR, LW_HAIR))
+    body.append(d.label(NPAD, y + 16, "END OF SET", "jb400", 10, 2.0, INK3))
+    H = y + 30 + NMARGIN
+    return (
+        d.svg_open(
+            NW, H, ["bc700", "bw400", "jb400", "jb700"],
+            "Lowcache — sheet LC-900, title block",
+            "Narrow-viewport edition of the title block, with reference links to "
+            "infernalcode.com, wiki.infernalcode.com and github.com/lowcache.",
+        )
+        + "".join(_narrow_frame(H)) + "".join(body) + d.svg_close()
+    )
+
+
 # --------------------------------------------------------------------- main ----
 SHEETS = {
     "sheet-lc000.svg": sheet_lc000,
     "sheet-lc100.svg": sheet_lc100,
     "sheet-lc200.svg": sheet_lc200,
     "sheet-lc900.svg": sheet_lc900,
+    "sheet-lc000-narrow.svg": sheet_lc000_narrow,
+    "sheet-lc100-narrow.svg": sheet_lc100_narrow,
+    "sheet-lc200-narrow.svg": sheet_lc200_narrow,
+    "sheet-lc900-narrow.svg": sheet_lc900_narrow,
 }
 
 

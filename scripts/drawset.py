@@ -117,6 +117,42 @@ def text_width(s: str, key: str, size: float, tracking: float = 0.0) -> float:
     return total + tracking * max(0, len(s) - 1)
 
 
+def wrap(s: str, key: str, size: float, limit: float, tracking: float = 0.0) -> list[str]:
+    """Greedy word wrap against measured advance widths.
+
+    Copy is stored once as a single string and wrapped per layout, so the wide
+    and narrow variants of a sheet cannot drift apart in wording. A word too
+    long for `limit` raises rather than silently overflowing.
+    """
+    words = s.split()
+    lines: list[str] = []
+    cur = ""
+    for w in words:
+        trial = f"{cur} {w}" if cur else w
+        if text_width(trial, key, size, tracking) <= limit:
+            cur = trial
+            continue
+        if cur:
+            lines.append(cur)
+        if text_width(w, key, size, tracking) > limit:
+            raise ValueError(
+                f"the word {w!r} is {text_width(w, key, size, tracking):.1f}u wide at "
+                f"{size}px and cannot fit a {limit:.1f}u column"
+            )
+        cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def paragraph(x: float, y: float, s: str, key: str, size: float, limit: float,
+              lh: float, colour: str = INK, tracking: float = 0.0):
+    """Wrapped body copy. Returns (svg, next_y) so callers can stack blocks."""
+    lines = wrap(s, key, size, limit, tracking)
+    out = [body(x, y + i * lh, ln, size, colour, key=key) for i, ln in enumerate(lines)]
+    return "".join(out), y + len(lines) * lh
+
+
 def fit(s: str, key: str, size: float, tracking: float, limit: float, label: str) -> str:
     """Assert measured text fits `limit`. Raises with numbers, so overflow is a build error."""
     w = text_width(s, key, size, tracking)

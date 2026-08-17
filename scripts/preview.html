@@ -18,7 +18,8 @@
   /* approximates GitHub's README container: 6px radius, 1px border, dark bg */
   .readme { border:1px solid #30363d; border-radius:6px; background:#0d1117;
             padding:32px 40px }
-  .readme img { max-width:100%; box-sizing:content-box; display:block; margin:0 auto }
+  .readme picture { display:block }
+  .readme img { width:100%; max-width:100%; box-sizing:content-box; display:block; margin:0 auto }
   h1 { font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
        color:#7d8590; margin:0 0 12px; padding-left:2px }
   .bar { display:flex; gap:8px; align-items:center; margin:0 0 20px; padding-left:2px;
@@ -33,6 +34,12 @@
   body.guides .readme { background-image:linear-gradient(to right,
       rgba(255,61,142,.16) 0 1px, transparent 1px 100%); background-size:40px 100%;
       background-position:40px 0 }
+  @media (max-width: 800px) {
+    /* GitHub drops to ~16px gutters on mobile; matching it keeps the measured
+       scale honest rather than pessimistic. */
+    .page { padding:10px 8px 40px }
+    .readme { padding:8px }
+  }
 </style>
 <div class="page">
   <h1>Profile sheets — rendered via &lt;img&gt;, GitHub README container</h1>
@@ -46,11 +53,15 @@
 <script>
   // Sheets are listed in README order. Missing ones render a placeholder rather
   // than a broken image, so this file stays valid as the set is built out.
+  // Mirrors the README's <picture> markup so the preview exercises the same
+  // source-selection the real page does. NOTE: <source media> keys off the
+  // VIEWPORT, not the container -- to test the narrow edition you must actually
+  // resize the browser window, not the 'narrow' toggle below.
   const SHEETS = [
-    ['../assets/sheet-lc000.svg', 'LC-000 general arrangement'],
-    ['../assets/sheet-lc100.svg', 'LC-100 repo index'],
-    ['../assets/sheet-lc200.svg', 'LC-200 survey'],
-    ['../assets/sheet-lc900.svg', 'LC-900 title block'],
+    ['sheet-lc000', 'LC-000 general arrangement'],
+    ['sheet-lc100', 'LC-100 repo index'],
+    ['sheet-lc200', 'LC-200 survey'],
+    ['sheet-lc900', 'LC-900 title block'],
   ];
   const box = document.getElementById('readme');
   // Pre-create one slot per sheet so review order matches README order, not
@@ -61,16 +72,25 @@
   const done = () => document.getElementById('status').textContent =
     `${ok} sheet(s) loaded, ${miss} not built yet`;
 
-  SHEETS.forEach(([src, label], i) => {
+  const bust = Date.now();
+  SHEETS.forEach(([stem, label], i) => {
+    const pic = document.createElement('picture');
+    const src = document.createElement('source');
+    src.media = '(max-width: 800px)';
+    src.srcset = `../assets/${stem}-narrow.svg?t=${bust}`;
     const img = new Image();
     img.alt = label;
-    img.onload = () => { slots[i].appendChild(img); ok++; done(); };
+    img.width = 0;                        // let CSS drive it, as width="100%" does
+    img.removeAttribute('width');
+    img.onload = () => { ok++; done(); };
     img.onerror = () => {
       slots[i].className = 'miss';
-      slots[i].textContent = label + ' — not built yet (' + src.replace('../','') + ')';
+      slots[i].textContent = label + ' — not built (' + stem + ')';
       miss++; done();
     };
-    img.src = src + '?t=' + Date.now();   // defeat cache between rebuilds
+    img.src = `../assets/${stem}.svg?t=${bust}`;
+    pic.appendChild(src); pic.appendChild(img);
+    slots[i].appendChild(pic);
   });
 
   const toggle = (btn, cls) => btn.onclick = () => {
