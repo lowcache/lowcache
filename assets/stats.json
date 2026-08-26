@@ -1,33 +1,33 @@
 {
   "followers": 0,
-  "generated": "2026-08-25",
+  "generated": "2026-08-26",
   "languages": [
     {
       "name": "Python",
-      "pct": 49.6
+      "pct": 49.8
     },
     {
       "name": "Nix",
-      "pct": 16.7
+      "pct": 16.8
     },
     {
       "name": "Luau",
-      "pct": 10.8
+      "pct": 12.0
     },
     {
       "name": "Shell",
-      "pct": 6.2
+      "pct": 5.8
     },
     {
       "name": "HTML",
-      "pct": 5.2
+      "pct": 4.9
     },
     {
       "name": "Nim",
-      "pct": 3.7
+      "pct": 3.5
     }
   ],
-  "repos": 12,
+  "repos": 11,
   "since": "2022",
   "stars": 5,
   "user": "lowcache"
