@@ -1,15 +1,10 @@
 {
-<<<<<<< HEAD
-  "followers": 1,
-  "generated": "2026-09-03",
-=======
   "followers": 0,
-  "generated": "2026-09-02",
->>>>>>> 5bea8a4f8089a681d0c1f57ea6433ce75f49a5b1
+  "generated": "2026-09-03",
   "languages": [
     {
       "name": "Python",
-      "pct": 52.4
+      "pct": 52.5
     },
     {
       "name": "Nix",
@@ -25,7 +20,7 @@
     },
     {
       "name": "HTML",
-      "pct": 4.6
+      "pct": 4.5
     },
     {
       "name": "Nim",
