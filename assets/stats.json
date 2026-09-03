@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "followers": 1,
   "generated": "2026-09-03",
+=======
+  "followers": 0,
+  "generated": "2026-09-02",
+>>>>>>> 5bea8a4f8089a681d0c1f57ea6433ce75f49a5b1
   "languages": [
     {
       "name": "Python",
