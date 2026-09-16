@@ -1,18 +1,18 @@
 {
   "followers": 0,
-  "generated": "2026-09-15",
+  "generated": "2026-09-16",
   "languages": [
     {
       "name": "Python",
-      "pct": 46.6
+      "pct": 46.1
     },
     {
       "name": "Nix",
-      "pct": 21.7
+      "pct": 22.3
     },
     {
       "name": "Luau",
-      "pct": 13.0
+      "pct": 12.9
     },
     {
       "name": "Shell",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Nim",
-      "pct": 3.1
+      "pct": 3.0
     }
   ],
   "repos": 11,
