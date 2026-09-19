@@ -1,14 +1,14 @@
 {
   "followers": 0,
-  "generated": "2026-09-18",
+  "generated": "2026-09-19",
   "languages": [
     {
       "name": "Python",
-      "pct": 44.8
+      "pct": 44.7
     },
     {
       "name": "Nix",
-      "pct": 24.2
+      "pct": 24.3
     },
     {
       "name": "Luau",
@@ -16,7 +16,7 @@
     },
     {
       "name": "Shell",
-      "pct": 4.4
+      "pct": 4.3
     },
     {
       "name": "HTML",
@@ -29,6 +29,6 @@
   ],
   "repos": 11,
   "since": "2022",
-  "stars": 18,
+  "stars": 19,
   "user": "lowcache"
 }
