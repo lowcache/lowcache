@@ -1,6 +1,5 @@
 {
   "followers": 0,
-<<<<<<< HEAD
   "generated": "2026-10-02",
   "languages": [
     {
@@ -14,21 +13,6 @@
     {
       "name": "Luau",
       "pct": 13.4
-=======
-  "generated": "2026-10-01",
-  "languages": [
-    {
-      "name": "Python",
-      "pct": 45.2
-    },
-    {
-      "name": "Nix",
-      "pct": 23.7
-    },
-    {
-      "name": "Luau",
-      "pct": 13.5
->>>>>>> 99804ea6347b931957a5c869107308ae8220fa5d
     },
     {
       "name": "Shell",
@@ -36,11 +20,7 @@
     },
     {
       "name": "HTML",
-<<<<<<< HEAD
       "pct": 3.9
-=======
-      "pct": 4.0
->>>>>>> 99804ea6347b931957a5c869107308ae8220fa5d
     },
     {
       "name": "Nim",
