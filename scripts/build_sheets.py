@@ -30,7 +30,7 @@ from drawset import (  # noqa: E402
 )
 
 OUT = Path(__file__).resolve().parent.parent / "assets"
-REV = "2026-08-17"
+REV = "2026-10-02"
 
 # --------------------------------------------------------------- sheet layout ----
 W = 880           # canonical sheet width; every x derives from this
@@ -54,22 +54,24 @@ LAYERS = [
 # Right-hand data block, beside the nameplate.
 IDENT = [
     ("HANDLE", "lowcache"),
-    ("STATUS", "freelance"),
-    ("CERT", "comptia a+ · linux+"),
+    ("SPONSOR", "accepting offers"),
+    ("STATUS", "freelance · available"),
+    ("CERTS", "a+ linux+"),
     ("EDU", "ba english"),
 ]
 
 # Stored as one string and wrapped per layout, so the wide and narrow sheets
 # cannot drift apart in wording.
 NOTES_TEXT = (
-    "Self-taught. Ten-plus years on Linux, currently freelance. The assembly "
-    "below is drawn as the machine actually runs: a NixOS workstation whose root "
+    "Self-taught. Fifteen-plus years on Linux, currently freelance. The assembly "
+    "below is drawn as the machine actually runs: a NixOS workstaaeation whose root "
     "filesystem lives in RAM and is destroyed on every boot. Everything durable "
     "is mapped by name; everything else is re-derived from a flake — including "
     "the tooling I build for agents."
 )
 
 REVISIONS = [
+    ("D", "2026-10-02", "anon engine"),
     ("C", "2026-08-17", "agent tooling"),
     ("B", "2026-07-13", "phone tier"),
     ("A", "2026-07-03", "first issue"),
