@@ -4,27 +4,27 @@
   "languages": [
     {
       "name": "Python",
-      "pct": 44.9
+      "pct": 38.4
     },
     {
       "name": "Nix",
-      "pct": 23.8
-    },
-    {
-      "name": "Luau",
-      "pct": 13.4
-    },
-    {
-      "name": "Shell",
-      "pct": 4.2
+      "pct": 20.4
     },
     {
       "name": "HTML",
-      "pct": 3.9
+      "pct": 17.8
+    },
+    {
+      "name": "Luau",
+      "pct": 11.5
+    },
+    {
+      "name": "Shell",
+      "pct": 3.6
     },
     {
       "name": "Nim",
-      "pct": 2.8
+      "pct": 2.4
     }
   ],
   "repos": 12,

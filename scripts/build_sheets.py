@@ -57,7 +57,6 @@ IDENT = [
     ("SPONSOR", "accepting offers"),
     ("STATUS", "freelance · available"),
     ("CERTS", "a+ linux+"),
-    ("EDU", "ba english"),
 ]
 
 # Stored as one string and wrapped per layout, so the wide and narrow sheets
