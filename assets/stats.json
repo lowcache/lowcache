@@ -1,14 +1,14 @@
 {
   "followers": 0,
-  "generated": "2026-10-10",
+  "generated": "2026-10-11",
   "languages": [
     {
       "name": "Python",
-      "pct": 37.5
+      "pct": 38.3
     },
     {
       "name": "Nix",
-      "pct": 19.8
+      "pct": 18.7
     },
     {
       "name": "HTML",
@@ -20,15 +20,15 @@
     },
     {
       "name": "Shell",
-      "pct": 4.6
+      "pct": 4.8
     },
     {
       "name": "Nim",
       "pct": 2.3
     }
   ],
-  "repos": 13,
+  "repos": 14,
   "since": "2022",
-  "stars": 21,
+  "stars": 22,
   "user": "lowcache"
 }
