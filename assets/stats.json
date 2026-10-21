@@ -1,26 +1,26 @@
 {
   "followers": 0,
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "languages": [
     {
       "name": "Python",
-      "pct": 35.4
+      "pct": 35.1
     },
     {
       "name": "Nix",
-      "pct": 19.6
+      "pct": 20.1
     },
     {
       "name": "HTML",
-      "pct": 15.6
+      "pct": 15.5
     },
     {
       "name": "Luau",
-      "pct": 10.8
+      "pct": 10.7
     },
     {
       "name": "Shell",
-      "pct": 5.4
+      "pct": 5.7
     },
     {
       "name": "Svelte",
