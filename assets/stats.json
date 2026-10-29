@@ -1,14 +1,14 @@
 {
   "followers": 0,
-  "generated": "2026-10-28",
+  "generated": "2026-10-29",
   "languages": [
     {
       "name": "Python",
-      "pct": 37.2
+      "pct": 37.1
     },
     {
       "name": "Nix",
-      "pct": 20.2
+      "pct": 20.5
     },
     {
       "name": "HTML",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Shell",
-      "pct": 5.5
+      "pct": 5.6
     },
     {
       "name": "Go",
